@@ -1,0 +1,27 @@
+<html>
+
+<body>
+  <script>
+    var calculateBonus = function( performanceLevel, salary ){
+        if ( performanceLevel === 'S' ){
+            return salary * 4;
+        }
+        if ( performanceLevel === 'A' ){
+            return salary * 3;
+        }
+        if ( performanceLevel === 'B' ){
+            return salary * 2;
+        }
+    };
+
+    calculateBonus( 'B', 20000 ); // 输出：40000
+    calculateBonus( 'S', 6000 ); // 输出：24000
+  </script>
+</body>
+
+</html>
+<!-- 缺点：-->
+
+<!-- 1.calculateBonus 函数比较庞大，包含了很多 if-else 语句
+2.calculateBonus 函数缺乏弹性，如果增加了一种新的绩效等级 C，或者想把绩效 S 的奖金 系数改为 5，那我们必须深入 calculateBonus 函数的内部实现，这是违反开放封闭原则的。
+3.算法的复用性差 -->

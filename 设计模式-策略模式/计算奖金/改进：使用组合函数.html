@@ -1,0 +1,30 @@
+<html>
+
+<body>
+  <script>
+    var performanceS = function (salary) {
+      return salary * 4;
+    };
+    var performanceA = function (salary) {
+      return salary * 3;
+    };
+    var performanceB = function (salary) {
+      return salary * 2;
+    };
+    var calculateBonus = function (performanceLevel, salary) {
+      if (performanceLevel === 'S') {
+        return performanceS(salary);
+      }
+      if (performanceLevel === 'A') {
+        return performanceA(salary);
+      }
+      if (performanceLevel === 'B') {
+        return performanceB(salary);
+      }
+    };
+    calculateBonus('A', 10000); // 输出：30000
+  </script>
+</body>
+
+</html>
+<!-- 问题依然存在：calculateBonus 函数有可能越来越庞大，而且在系统变化的时候缺乏弹性 -->
