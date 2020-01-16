@@ -1,0 +1,24 @@
+<html>
+
+<body>
+  <script>
+    var Singleton = (function () {
+      var instance
+      Singleton = function (name) {
+        if (instance) return instance
+        this.name = name
+        return instance = this
+      }
+      return Singleton
+    })()
+
+    var a = new Singleton('a')
+    var b = new Singleton('b')
+    console.log(a === b)
+  </script>
+</body>
+
+</html>
+<!-- 这中方法也有点缺点：不符合单一职责原则，这个对象其实负责了两个功能：单例和创建对象 -->
+
+<!-- 下面我们分离这两个职责 -->

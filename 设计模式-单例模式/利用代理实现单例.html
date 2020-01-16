@@ -1,0 +1,25 @@
+<html>
+
+<body>
+  <script>
+    var People = function(name) {
+      this.name = name
+    }
+
+    var Singleton = (function() {
+      var instance
+      Singleton = function(name) {
+        if (instance) return instance
+        return instance = new People(name)
+      }
+      return Singleton
+    })()
+
+    var a = new Singleton('a')
+    var b = new Singleton('b')
+    console.log(a===b)
+  </script>
+</body>
+
+</html>
+<!-- 这中方法也有点缺点：代码不能复用。如果我们有另外一个对象也要利用单例模式，那我们不得不写重复的代码 -->

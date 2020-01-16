@@ -1,0 +1,25 @@
+<html>
+
+<body>
+  <script>
+    class People {
+      constructor(name) {
+        if (typeof People.instance === 'object') {
+          return People.instance;
+        }
+        People.instance = this;
+        this.name = name
+        return this;
+      }
+    }
+    var a = new People('a')
+    var b = new People('b')
+    console.log(a === b)
+  </script>
+</body>
+
+</html>
+<!-- 比较以上几种实现 -->
+<!-- 用全局变量的第1种方法，应该摒弃
+用闭包实现的第2种方式，instance 实例对象总是在我们调用 Singleton.getInstance 的时候才被创建，应该摒弃
+其他方式都是惰性单例（在需要时才创建） -->

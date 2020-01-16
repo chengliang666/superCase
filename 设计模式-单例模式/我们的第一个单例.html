@@ -1,0 +1,20 @@
+<html>
+
+<body>
+  <script>
+    var instance = null
+    var getInstance = function(arg) {
+    if (!instance) {
+        instance = arg
+    }
+    return instance
+    }
+
+    var a = getInstance('a')
+    var b = getInstance('b')
+    console.log(a===b)
+  </script>
+</body>
+
+</html>
+<!-- 这种定义一个全局变量的方式非常不优雅，也不好复用代码 -->

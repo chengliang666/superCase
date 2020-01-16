@@ -1,0 +1,24 @@
+<html>
+
+<body>
+  <script>
+    function Singleton(name) {
+      this.name = name
+      this.instance = null
+    }
+
+    Singleton.getInstance = function (name) {
+      if (!this.instance) {
+        this.instance = new Singleton(name)
+      }
+      return this.instance
+    }
+
+    var a = Singleton.getInstance('a')
+    var b = Singleton.getInstance('b')
+    console.log(a === b)
+  </script>
+</body>
+
+</html>
+<!-- 利用闭包和函数这两种方式也有缺点，就是我们必须调用getInstance来创建对象，一般我们创建对象都是利用new操作符 -->

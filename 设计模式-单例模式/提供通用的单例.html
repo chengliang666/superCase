@@ -1,0 +1,27 @@
+<html>
+
+<body>
+  <script>
+    var People = function (name) {
+      this.name = name
+    }
+
+    var Singleton = function (Obj) {
+      var instance
+      Singleton = function () {
+        if (instance) return instance
+        return instance = new Obj(arguments)
+      }
+      return Singleton
+    }
+
+    var peopleSingleton = Singleton(People)
+
+    var a = new peopleSingleton('a')
+    var b = new peopleSingleton('b')
+    console.log(a === b)
+  </script>
+</body>
+
+</html>
+<!-- 到这里已经比较完美了，等等这只是es5的写法，下面我们用es6来实现一下 -->

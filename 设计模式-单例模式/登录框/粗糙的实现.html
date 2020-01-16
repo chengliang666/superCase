@@ -1,0 +1,21 @@
+<html>
+
+<body>
+  <button id="loginBtn">登录</button>
+</body>
+<script>
+  var loginLayer = (function () {
+    var div = document.createElement('div');
+    div.innerHTML = '我是登录浮窗';
+    div.style.display = 'none';
+    document.body.appendChild(div);
+    return div;
+  })();
+  document.getElementById('loginBtn').onclick = function () {
+
+    loginLayer.style.display = 'block';
+  };
+</script>
+
+</html>
+<!-- 上面这种方式如果用户没有点击登录按钮，也会在一开始就创建登录框 -->
