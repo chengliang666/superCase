@@ -1,0 +1,33 @@
+<html>
+
+<body>
+  <script>
+    var myImage = (function () {
+      var imgNode = document.createElement('img');
+      document.body.appendChild(imgNode);
+      return {
+        setSrc: function (src) {
+          imgNode.src = src
+        }
+      }
+    })();
+
+    var proxyImage = (function () {
+      var img = new Image()
+      img.onload = function () {
+        myImage.setSrc(img.src)
+      }
+      return {
+        setSrc: function (src) {
+          img.src = src
+          myImage.setSrc('https://content.igola.com/static/WEB/images/other/loading-searching.gif')
+        }
+      }
+    })()
+
+    proxyImage.setSrc('https://segmentfault.com/img/bVbmvnB?w=573&h=158');
+  </script>
+</body>
+
+</html>
+<!-- 注意：我们的代理和本体接口要保持一致性，如上面proxyImage和myImage都返回一个包含setSrc方法的对象。居于这点我们写代理的时候也有迹可循。 -->

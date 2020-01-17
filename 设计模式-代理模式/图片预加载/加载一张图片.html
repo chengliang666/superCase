@@ -1,0 +1,20 @@
+<html>
+
+<body>
+  <script>
+    var myImage = (function () {
+      var imgNode = document.createElement('img');
+      document.body.appendChild(imgNode);
+      return {
+        setSrc: function (src) {
+          imgNode.src = src;
+        }
+      }
+    })();
+    myImage.setSrc('https://segmentfault.com/img/bVbmvnB?w=573&h=158');
+  </script>
+</body>
+
+</html>
+<!-- 想象一下，如果我们的图片很大，用户就会看到页面很长一段时间是空白
+我们可以想到的改进是图片加载完成之前都展示loading图片 -->

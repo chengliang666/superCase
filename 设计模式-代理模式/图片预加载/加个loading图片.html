@@ -1,0 +1,28 @@
+<html>
+
+<body>
+  <script>
+    var myImage = (function () {
+      var imgNode = document.createElement('img');
+      document.body.appendChild(imgNode);
+      var img = new Image()
+      img.onload = () => {
+        // 模拟图片加载
+        setTimeout(() => {
+          imgNode.src = img.src
+        }, 1000)
+      }
+      return {
+        setSrc: function (src) {
+          img.src = src
+          imgNode.src = 'https://content.igola.com/static/WEB/images/other/loading-searching.gif';
+        }
+      }
+    })();
+    myImage.setSrc('https://segmentfault.com/img/bVbmvnB?w=573&h=158');
+  </script>
+</body>
+
+</html>
+<!-- 这段代码违背了单一职责原则，这个对象同时承担了加载图片和预加载图片两个职责
+同时也违背了开放封闭原则，如果我们以后不需要预加载图片了，那我们不得不修改整个对象 -->

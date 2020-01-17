@@ -1,0 +1,32 @@
+<html>
+
+<body>
+  <div id="wrapper">
+    <input type="checkbox" id="1"></input>1
+    <input type="checkbox" id="2"></input>2
+    <input type="checkbox" id="3"></input>3
+    <input type="checkbox" id="4"></input>4
+    <input type="checkbox" id="5"></input>5
+    <input type="checkbox" id="6"></input>6
+    <input type="checkbox" id="7"></input>7
+    <input type="checkbox" id="8"></input>8
+    <input type="checkbox" id="9"></input>9
+  </div>
+  <script>
+    // 模拟http请求
+    var synchronousFile = function (id) {
+      console.log('开始同步文件，id 为: ' + id);
+    };
+
+    var inputs = document.getElementsByTagName('input')
+    var wrapper = document.getElementById('wrapper')
+    wrapper.onclick = function (e) {
+      if (e.target.tagName === 'INPUT') {
+        synchronousFile(e.target.id)
+      }
+    }
+  </script>
+</body>
+
+</html>
+<!-- 缺点很明显：每点一次就发送一次http请求 -->
